@@ -34,7 +34,8 @@ public class logicEasy extends javax.swing.JFrame {
     
     public logicEasy() {
         initComponents();
-       
+        setLocationRelativeTo(null);
+        
         jPanel3.setBackground(new Color(0,0,0,100));
         jPanel4.setBackground(new Color(153,153,255,100));
         selectLabel.setBackground(new Color(255,255,255,100));

@@ -38,6 +38,8 @@ public class Home extends javax.swing.JFrame {
     
     public Home() {
         initComponents();
+        setLocationRelativeTo(null);
+        
         profileBG.setBackground(new Color(129,141,182,100));
         charBG.setBackground(new Color(129,141,182,100));
         
@@ -244,11 +246,11 @@ public class Home extends javax.swing.JFrame {
         highScore.setText("0");
         profileBG.add(highScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 160, -1));
 
-        alltimeScore.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 1, 22)); // NOI18N
+        alltimeScore.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 1, 18)); // NOI18N
         alltimeScore.setForeground(new java.awt.Color(255, 255, 255));
         alltimeScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         alltimeScore.setText("ALL-TIME SCORE");
-        profileBG.add(alltimeScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
+        profileBG.add(alltimeScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 49, 180, 30));
 
         jPanel1.add(profileBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 280, 110));
 

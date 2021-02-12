@@ -24,6 +24,7 @@ public class Leaderboards extends javax.swing.JFrame {
      */
     public Leaderboards() {
         initComponents();
+        setLocationRelativeTo(null);
         
         leaderboards.getTableHeader().setVisible(false);
         jScrollPane1.getViewport().setBackground(new Color(182,190,215));

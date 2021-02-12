@@ -32,7 +32,7 @@ public class Main extends javax.swing.JFrame {
     
     public Main() {
         initComponents();
-        forgotpasshere.hide();
+        setLocationRelativeTo(null);
     }
     
     public void onClickLogin() throws Exception {
@@ -156,7 +156,6 @@ public class Main extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         registerhere = new javax.swing.JLabel();
-        forgotpasshere = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -184,6 +183,11 @@ public class Main extends javax.swing.JFrame {
 
         pass.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 0, 12)); // NOI18N
         pass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passActionPerformed(evt);
+            }
+        });
         jPanel1.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 160, -1));
 
         login.setBackground(new java.awt.Color(153, 204, 255));
@@ -222,17 +226,6 @@ public class Main extends javax.swing.JFrame {
         });
         jPanel1.add(registerhere, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, -1, -1));
 
-        forgotpasshere.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 0, 12)); // NOI18N
-        forgotpasshere.setForeground(new java.awt.Color(0, 102, 204));
-        forgotpasshere.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        forgotpasshere.setText("Having Problems?");
-        forgotpasshere.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                forgotpasshereMouseClicked(evt);
-            }
-        });
-        jPanel1.add(forgotpasshere, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
-
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 400, 260));
 
         jLabel3.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 1, 18)); // NOI18N
@@ -247,7 +240,11 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userActionPerformed
-        // TODO add your handling code here:
+        try {
+            onClickLogin();
+        } catch (Exception ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_userActionPerformed
 
     private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
@@ -284,10 +281,13 @@ public class Main extends javax.swing.JFrame {
         new Registration().setVisible(true);
     }//GEN-LAST:event_registerhereMouseClicked
 
-    private void forgotpasshereMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotpasshereMouseClicked
-        this.dispose();
-        new Forgot().setVisible(true);
-    }//GEN-LAST:event_forgotpasshereMouseClicked
+    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
+        try {
+            onClickLogin();
+        } catch (Exception ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_passActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,7 +325,6 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel forgotpasshere;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -33,7 +33,8 @@ public class logicHard extends javax.swing.JFrame {
     
     public logicHard() {
         initComponents();
-       
+        setLocationRelativeTo(null);
+        
         jPanel3.setBackground(new Color(0,0,0,100));
         jPanel4.setBackground(new Color(153,153,255,100));
         selectLabel.setBackground(new Color(255,255,255,100));
@@ -100,7 +101,7 @@ public class logicHard extends javax.swing.JFrame {
         quiz[0][0] = "<html><p align=\"center\">SOUND : CACOPHONY</p></html>"; 
         
         // Choices
-        quiz[0][1] = "A. SPPECH : ORATION";
+        quiz[0][1] = "A. SPEECH : ORATION";
         quiz[0][2] = "B. TOUCH : MASSAGE"; // Correct Answer
         quiz[0][3] = "C. SMELL : STENCH";
         quiz[0][4] = "D. TASTE : STYLE";

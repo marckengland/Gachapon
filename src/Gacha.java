@@ -27,6 +27,8 @@ public class Gacha extends javax.swing.JFrame {
     
     public Gacha() {
         initComponents();
+        setLocationRelativeTo(null);
+        
         itemBannerbtn.setBackground(new Color(0,0,0,100));
         charBannerbtn.setBackground(new Color(0,0,0,100));
         summonBtn1.setBackground(new Color(0,0,0,100));
@@ -904,6 +906,7 @@ public class Gacha extends javax.swing.JFrame {
             buyTokens.show();
         }
         else{
+            summonBtn1.hide();
             summon1 = randomizer.nextInt(gachaPool+1);
             //Home.tokenEarn -= 160;
             token -= 160;
@@ -914,7 +917,7 @@ public class Gacha extends javax.swing.JFrame {
                 fivestarSummon1.show();
             else
                 fourstarSummon1.show();
-
+            
             Timer sleep = new Timer(7750, e -> {
                 fivestarSummon1.hide();
                 fourstarSummon1.hide();
@@ -1340,6 +1343,7 @@ public class Gacha extends javax.swing.JFrame {
                              jPanel3.show();
                              exit.show();
                 }
+                summonBtn1.show();
             });
 
            sleep.setRepeats(false);
@@ -1356,6 +1360,7 @@ public class Gacha extends javax.swing.JFrame {
             buyTokens.show();
         }
         else{
+            summonBtn10.hide();
             summon10 = randomizer.nextInt(gachaPool+1);
             //Home.tokenEarn -= 1600;
             token -= 1600;
@@ -1370,7 +1375,7 @@ public class Gacha extends javax.swing.JFrame {
         Timer sleep = new Timer(7800, e -> {
             fivestarSummon10.hide();
             fourstarSummon10.hide();
-              
+            
             switch(summon10){
                 // 5-Stars
                 case 1: Akisa510.show();
@@ -2687,6 +2692,7 @@ public class Gacha extends javax.swing.JFrame {
                         jPanel3.show();
                         exit.show();
             }
+            summonBtn10.show();
         });
        
        sleep.setRepeats(false);

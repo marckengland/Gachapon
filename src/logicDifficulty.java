@@ -18,7 +18,7 @@ public class logicDifficulty extends javax.swing.JFrame {
      */
     public logicDifficulty() {
         initComponents();
-        
+        setLocationRelativeTo(null);
 
     }
 

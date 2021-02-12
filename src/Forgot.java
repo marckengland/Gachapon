@@ -15,6 +15,7 @@ public class Forgot extends javax.swing.JFrame {
      */
     public Forgot() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

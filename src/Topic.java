@@ -18,7 +18,8 @@ public class Topic extends javax.swing.JFrame {
      */
     public Topic() {
         initComponents();
-
+        setLocationRelativeTo(null);
+        
     }
 
     /**

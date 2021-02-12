@@ -19,6 +19,7 @@ public class Shop extends javax.swing.JFrame {
      */
     public Shop() {
         initComponents();
+        setLocationRelativeTo(null);
         
         int token = Integer.parseInt(Home.tokens.getText());
         tokens.setText(""+token);

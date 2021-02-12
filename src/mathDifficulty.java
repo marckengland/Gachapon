@@ -18,7 +18,7 @@ public class mathDifficulty extends javax.swing.JFrame {
      */
     public mathDifficulty() {
         initComponents();
-        
+        setLocationRelativeTo(null);
 
     }
 
