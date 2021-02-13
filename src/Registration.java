@@ -69,7 +69,7 @@ public class Registration extends javax.swing.JFrame {
 					} catch (Exception e) {
 						e.printStackTrace();
 						e.getCause();
-						System.out.println("Exception!");
+						System.out.println("Error!");
 					}
 				
 			} else 
@@ -79,100 +79,6 @@ public class Registration extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null,"Any field cannot be blank!");
 		
 	}
-    
-    /*void createFolder(){
-        if(!file.exists()){
-            file.mkdirs();
-        }
-    }
-    
-    void readFile(){
-        try {
-            FileReader fileRead = new FileReader(file+"\\logins.txt");
-            System.out.println("file exists!");
-        } catch (FileNotFoundException ex) {
-            try {
-                FileWriter fireWrite = new FileWriter(file+"\\logins.txt");
-                System.out.println("File created");
-            } catch (IOException ex1) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex1);
-            }
-        }
-    }
-    
-    void addData(String usr,String pswd,String mail){
-        
-        try {
-            RandomAccessFile accessFile = new RandomAccessFile(file+"\\logins.txt", "rw");
-            for(int i=0;i<ln;i++){
-                accessFile.readLine();
-            }
-            //if condition added after video to have no lines on first entry
-            if(ln>0){
-            accessFile.writeBytes("\r\n");
-            accessFile.writeBytes("\r\n");
-            }
-            accessFile.writeBytes("Username:"+usr+ "\r\n");
-            accessFile.writeBytes("Password:"+pswd+ "\r\n");
-            accessFile.writeBytes("Email:"+mail);
-            //uid ++;
-            //accessFile.writeBytes("UID:"+uid);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
-    
-    void checkData(String usr,String pswd){
-    
-        try {
-            RandomAccessFile accessFile = new RandomAccessFile(file+"\\logins.txt", "rw");
-            for(int i=0;i<ln;i+=4){
-                System.out.println("count "+i);
-            
-            
-            Username=accessFile.readLine().substring(9);
-            Password=accessFile.readLine().substring(9);
-            
-            if(usr.equals(Username) & pswd.equals(Password)){
-                JOptionPane.showMessageDialog(null, "Username already exists!");
-            }else{
-                addData(user.getText(),pass.getText(),email.getText());
-                JOptionPane.showMessageDialog(null, "User Registered!");
-                user.setText("");
-                pass.setText("");
-                email.setText("");
-            }
-            for(int k=1;k<=2;k++){
-                    accessFile.readLine();
-            }
-        }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
-    }
-    
-    void countLines(){
-        try {
-            ln=0;
-            RandomAccessFile accessFile = new RandomAccessFile(file+"\\logins.txt", "rw");
-            for(int i=0;accessFile.readLine()!=null;i++){
-                ln++;
-            }
-            System.out.println("number of lines:"+ln);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }*/
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -195,7 +101,7 @@ public class Registration extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gachapon");
+        setTitle("Gashapon Quiz");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -218,11 +124,21 @@ public class Registration extends javax.swing.JFrame {
 
         pass.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 0, 12)); // NOI18N
         pass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passActionPerformed(evt);
+            }
+        });
         jPanel1.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 160, -1));
 
         email.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 0, 12)); // NOI18N
         email.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         email.setName("pass"); // NOI18N
+        email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailActionPerformed(evt);
+            }
+        });
         jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 160, -1));
 
         register.setBackground(new java.awt.Color(153, 204, 255));
@@ -280,31 +196,10 @@ public class Registration extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userActionPerformed
-        // TODO add your handling code here:
+        registerUser();
     }//GEN-LAST:event_userActionPerformed
 
     private void registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseClicked
-        /*createFolder(); 
-        readFile();
-        countLines();
-        //checkData(user.getText(),pass.getText());
-        addData(user.getText(),pass.getText(),email.getText());
-        try{
-            String sql = "INSERT INTO gachaponacc"
-            +"(user, pass, email,atscore,tokens)"
-            +"VALUES (?,?,?,0,10000)";
-            con = DriverManager.getConnection("jdbc:mysql://localhost/gachapondb","root","");
-            pst = con.prepareStatement(sql);
-            pst.setString(1,user.getText());
-            pst.setString(2,pass.getText());
-            pst.setString(3,email.getText());
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null,"User Registered!");
-        }
-        catch(SQLException | HeadlessException ex){
-            JOptionPane.showMessageDialog(null, ex);
-        }*/
-        //JOptionPane.showMessageDialog(null,"User Registered!");
         registerUser();
         user.setText("");
         pass.setText("");
@@ -315,6 +210,14 @@ public class Registration extends javax.swing.JFrame {
         this.dispose();
         new Main().setVisible(true);
     }//GEN-LAST:event_loginhereMouseClicked
+
+    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
+        registerUser();
+    }//GEN-LAST:event_passActionPerformed
+
+    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
+        registerUser();
+    }//GEN-LAST:event_emailActionPerformed
 
     /**
      * @param args the command line arguments

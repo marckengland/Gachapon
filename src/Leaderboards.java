@@ -40,8 +40,6 @@ public class Leaderboards extends javax.swing.JFrame {
         leaderboards.setRowHeight(40);
         
         showLeaderboards();
-//        int token = Integer.parseInt(Home.tokens.getText());
-//        tokens.setText("Tokens: "+token);
     }
     
     public void showLeaderboards(){
@@ -55,7 +53,7 @@ public class Leaderboards extends javax.swing.JFrame {
             ResultSet rs = statement.executeQuery();
             leaderboards.setModel(DbUtils.resultSetToTableModel(rs));
         }catch(Exception ex){
-            
+            System.out.println("Error!");
         }
     }
 
@@ -79,7 +77,7 @@ public class Leaderboards extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gachapon");
+        setTitle("Gashapon Quiz");
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(800, 640));
         setResizable(false);
@@ -118,7 +116,6 @@ public class Leaderboards extends javax.swing.JFrame {
         leaderboards.setGridColor(new java.awt.Color(0, 0, 0));
         leaderboards.setRequestFocusEnabled(false);
         leaderboards.setRowSelectionAllowed(false);
-        leaderboards.setRowSorter(null);
         leaderboards.setShowGrid(false);
         leaderboards.getTableHeader().setResizingAllowed(false);
         leaderboards.getTableHeader().setReorderingAllowed(false);

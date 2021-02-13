@@ -44,14 +44,10 @@ public class Home extends javax.swing.JFrame {
         charBG.setBackground(new Color(129,141,182,100));
         
         
-        name.setText(""+userName);
-        
-        /*int allScore = hScore;
-        int allTokens = tokenEarn + 10000;
-        
-        highScore.setText(""+allScore);
-        tokens.setText(""+allTokens);*/       
+        name.setText(""+userName);      
         getST();
+        
+        System.out.println(""+userName);
     }
     
      public void getST(){
@@ -69,42 +65,11 @@ public class Home extends javax.swing.JFrame {
 		tokens.setText(""+gT);
                 highScore.setText(""+gS);
              } 
-             else{
-		System.out.println("Invalid");
-			}
          }catch(Exception ex){
-             
+             System.out.println("Error!");
          }
      }
-
-    /*void login(String usr,String pswd){
-        try {
-            RandomAccessFile accessFile = new RandomAccessFile(file+"\\logins.txt", "rw");
-            for(int i=0;i<ln;i+=4){System.out.println("count "+i);
-            
-                String forUser = accessFile.readLine().substring(9);
-                String forPswd = accessFile.readLine().substring(9);
-                if(usr.equals(forUser) & pswd.equals(forPswd)){
-                    this.dispose();
-                    new Home().setVisible(true);
-                    break;
-                }else if(i==(ln-3)){
-                    JOptionPane.showMessageDialog(null, "Invalid Credentials!");
-                    break;
-                }
-                // if you are using user & passwword without email
-                // then dont forget to replace  k<=2 with k=2 below
-                for(int k=1;k<=2;k++){
-                    accessFile.readLine();
-                }
-            }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
-    }*/
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -135,7 +100,7 @@ public class Home extends javax.swing.JFrame {
         homeBG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gachapon");
+        setTitle("Gashapon Quiz");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setLocation(new java.awt.Point(0, 0));
         setMinimumSize(new java.awt.Dimension(800, 640));

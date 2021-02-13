@@ -60,8 +60,6 @@ public class logicIntermediate extends javax.swing.JFrame {
         
         initData();
         update();
-        
-        System.out.println(""+userName);
     }
     
     public void updateST(){
@@ -77,7 +75,7 @@ public class logicIntermediate extends javax.swing.JFrame {
                 statement.setInt(2,Integer.parseInt(tokenLabel.getText()));  
                 statement.executeUpdate();
          }catch(Exception ex){
-             
+             System.out.println(""+userName);
          }
      }
     
@@ -244,7 +242,7 @@ public class logicIntermediate extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gachapon");
+        setTitle("Gashapon Quiz");
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(800, 640));
         setResizable(false);

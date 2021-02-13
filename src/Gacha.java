@@ -181,7 +181,6 @@ public class Gacha extends javax.swing.JFrame {
     }
     
     public void updateTokens(){
-         System.out.println(""+userName);
          DBConnection connectNow = new DBConnection();
 	 Connection connectDB = connectNow.getConnection();
          
@@ -192,7 +191,7 @@ public class Gacha extends javax.swing.JFrame {
                 statement.setInt(1,Integer.parseInt(tokens.getText()));
                 statement.executeUpdate();
          }catch(Exception ex){
-             
+             System.out.println("Error!");
          }
      }
 
@@ -323,7 +322,7 @@ public class Gacha extends javax.swing.JFrame {
         buyTokens = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gachapon");
+        setTitle("Gashapon Quiz");
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(800, 640));
         setResizable(false);

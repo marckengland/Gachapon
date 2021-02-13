@@ -22,13 +22,13 @@ public class MainMenuScreen extends javax.swing.JFrame {
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gachapon");
+        setTitle("Gashapon Quiz");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Title.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 1, 90)); // NOI18N
         Title.setForeground(new java.awt.Color(255, 255, 255));
         Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Title.setText("ガチャポン！");
+        Title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/Gashapon_logo.png"))); // NOI18N
         Title.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Title.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

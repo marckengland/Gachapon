@@ -62,81 +62,12 @@ public class Main extends javax.swing.JFrame {
 				System.out.println("Invalid Login");
 			}
 			
-			System.out.println("Try!");
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 			e.getCause();
-			System.out.println("Exception!");
+			System.out.println("Error!");
 		}
-		
 	}
-    
-    /*void createFolder(){
-        if(!file.exists()){
-            file.mkdirs();
-        }
-    }
-    
-    void readFile(){
-        try {
-            FileReader fileRead = new FileReader(file+"\\logins.txt");
-            System.out.println("file exists!");
-        } catch (FileNotFoundException ex) {
-            try {
-                FileWriter fireWrite = new FileWriter(file+"\\logins.txt");
-                System.out.println("File created");
-            } catch (IOException ex1) {
-                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex1);
-            }
-        }
-    }
-    
-    void login(String usr,String pswd){
-        try {
-            RandomAccessFile accessFile = new RandomAccessFile(file+"\\logins.txt", "rw");
-            for(int i=0;i<ln;i+=4){System.out.println("count "+i);
-            
-                String forUser = accessFile.readLine().substring(9);
-                String forPswd = accessFile.readLine().substring(9);
-                if(usr.equals(forUser) & pswd.equals(forPswd)){
-                    this.dispose();
-                    new Home().setVisible(true);
-                    break;
-                }else if(i==(ln-3)){
-                    JOptionPane.showMessageDialog(null, "Invalid Credentials!");
-                    break;
-                }
-                // if you are using user & passwword without email
-                // then dont forget to replace  k<=2 with k=2 below
-                for(int k=1;k<=2;k++){
-                    accessFile.readLine();
-                }
-            }
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
-       
-    
-    void countLines(){
-        try {
-            ln=0;
-            RandomAccessFile accessFile = new RandomAccessFile(file+"\\logins.txt", "rw");
-            for(int i=0;accessFile.readLine()!=null;i++){
-                ln++;
-            }
-            System.out.println("number of lines:"+ln);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }*/
     
 
     /**
@@ -159,7 +90,7 @@ public class Main extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gachapon");
+        setTitle("Gashapon Quiz");
         setBackground(new java.awt.Color(153, 153, 255));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -243,36 +174,15 @@ public class Main extends javax.swing.JFrame {
         try {
             onClickLogin();
         } catch (Exception ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error!");
         }
     }//GEN-LAST:event_userActionPerformed
 
     private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
-        /*createFolder();
-            readFile();
-            countLines();
-            login(user.getText(), pass.getText());
-            try{
-            String sql = "SELECT * FROM gachaponacc WHERE user=? AND pass=?";
-            con = DriverManager.getConnection("jdbc:mysql://localhost/gachapondb","root","");
-            pst = con.prepareStatement(sql);
-            pst.setString(1,user.getText());
-            pst.setString(2,pass.getText());
-            rs=pst.executeQuery();
-            if(rs.next()){
-            this.dispose();
-            new Home().setVisible(true);
-            }
-            else
-            JOptionPane.showMessageDialog(null,"Invalid Credentials!");
-            }
-            catch(Exception ex){
-            JOptionPane.showMessageDialog(null, ex);
-            }*/
         try {
             onClickLogin();
         } catch (Exception ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error!");
         }
     }//GEN-LAST:event_loginMouseClicked
 
