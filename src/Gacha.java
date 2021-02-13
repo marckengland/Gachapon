@@ -2,6 +2,7 @@
 import java.awt.Color;
 import java.util.Random;
 import javax.swing.Timer;
+import java.sql.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,6 +22,8 @@ public class Gacha extends javax.swing.JFrame {
     int summon10 = 0;
     int gachaPool = 100;
     int token = Integer.parseInt(Home.tokens.getText());
+    
+    String userName = Home.name.getText();
     
     public Gacha() {
         initComponents();
@@ -171,7 +174,25 @@ public class Gacha extends javax.swing.JFrame {
         Seika10.hide();
         Tsumm510.hide();
         Yinda10.hide();
+        
+        System.out.println(""+userName);
     }
+    
+    public void updateTokens(){
+         System.out.println(""+userName);
+         DBConnection connectNow = new DBConnection();
+	 Connection connectDB = connectNow.getConnection();
+         
+         String updateTokens = "UPDATE gachaponacc SET tokens=? WHERE user= '" + userName + "'";
+         
+         try{
+             PreparedStatement statement = connectDB.prepareStatement(updateTokens);
+                statement.setInt(1,Integer.parseInt(tokens.getText()));
+                statement.executeUpdate();
+         }catch(Exception ex){
+             
+         }
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -887,6 +908,7 @@ public class Gacha extends javax.swing.JFrame {
             //Home.tokenEarn -= 160;
             token -= 160;
             tokens.setText(""+token);
+            updateTokens();
     
             if(summon1 <= 7)
                 fivestarSummon1.show();
@@ -1338,6 +1360,7 @@ public class Gacha extends javax.swing.JFrame {
             //Home.tokenEarn -= 1600;
             token -= 1600;
             tokens.setText(""+token);
+            updateTokens();
         
         if(summon10 <= 7)
             fivestarSummon10.show();

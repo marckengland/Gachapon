@@ -34,7 +34,7 @@ public class Home extends javax.swing.JFrame {
     PreparedStatement pst = null;
     ResultSet rs = null;
  
-    String userName = Main.user.getText();
+    public String userName = Main.user.getText();
     
     public Home() {
         initComponents();
@@ -42,7 +42,7 @@ public class Home extends javax.swing.JFrame {
         charBG.setBackground(new Color(129,141,182,100));
         
         
-        name.setText("Name: "+userName);
+        name.setText(""+userName);
         
         /*int allScore = hScore;
         int allTokens = tokenEarn + 10000;
@@ -121,6 +121,7 @@ public class Home extends javax.swing.JFrame {
         shop = new javax.swing.JLabel();
         profileBG = new javax.swing.JPanel();
         name = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
         currentRank = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         icon = new javax.swing.JLabel();
@@ -212,8 +213,14 @@ public class Home extends javax.swing.JFrame {
         name.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 0, 14)); // NOI18N
         name.setForeground(new java.awt.Color(255, 255, 255));
         name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        name.setText("Name: Barbara");
-        profileBG.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+        name.setText("Barbara");
+        profileBG.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
+
+        nameLabel.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 0, 14)); // NOI18N
+        nameLabel.setForeground(new java.awt.Color(255, 255, 255));
+        nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel.setText("Name:");
+        profileBG.add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
         currentRank.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 0, 14)); // NOI18N
         currentRank.setForeground(new java.awt.Color(255, 255, 255));
@@ -348,6 +355,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel logout;
     public static javax.swing.JLabel name;
+    public static javax.swing.JLabel nameLabel;
     private javax.swing.JPanel profileBG;
     private javax.swing.JLabel quiz;
     private javax.swing.JLabel rankings;
