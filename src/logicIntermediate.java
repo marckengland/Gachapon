@@ -5,6 +5,8 @@ import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Timer;
+import java.sql.*;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -24,7 +26,11 @@ public class logicIntermediate extends javax.swing.JFrame {
     int question = 0;
     int score = 0;
     
+    int tokenEarned = 0;
+    int scoreEarned = 0;
+    
     String[][] quiz = new String[n][6];
+    String userName = Home.name.getText();
     
     public logicIntermediate() {
         initComponents();
@@ -38,6 +44,7 @@ public class logicIntermediate extends javax.swing.JFrame {
         jPanel4.hide();
         scoreL.hide();
         scoreLabel.hide();
+        tokenLabel.hide();
         selectLabel.hide();
         mmLabel.hide();
         
@@ -52,7 +59,26 @@ public class logicIntermediate extends javax.swing.JFrame {
         
         initData();
         update();
+        
+        System.out.println(""+userName);
     }
+    
+    public void updateST(){
+         System.out.println(""+userName);
+         DBConnection connectNow = new DBConnection();
+	 Connection connectDB = connectNow.getConnection();
+         
+         String updateTokens = "UPDATE gachaponacc SET atscore = atscore + ?, tokens = tokens + ? WHERE user= '" + userName + "'";
+         
+         try{
+             PreparedStatement statement = connectDB.prepareStatement(updateTokens);
+                statement.setInt(1,Integer.parseInt(scoreLabel.getText()));
+                statement.setInt(2,Integer.parseInt(tokenLabel.getText()));  
+                statement.executeUpdate();
+         }catch(Exception ex){
+             
+         }
+     }
     
     public void update(){
         questionLabel.setText(quiz[question][0]);
@@ -589,13 +615,16 @@ public class logicIntermediate extends javax.swing.JFrame {
                 jPanel4.show();
                 scoreL.show();
                 scoreLabel.show();
+                tokenLabel.show();
                 selectLabel.show();
                 mmLabel.show();
                 
-                //Home.hScore += score;
-                //Home.tokenEarn += (score*3);
+                scoreEarned += score;
+                tokenEarned += (score*3);
                 
-                scoreLabel.setText(""+score);
+                scoreLabel.setText(""+scoreEarned);
+                tokenLabel.setText(""+tokenEarned);
+                updateST();
                 round = 0;
             }
        });
@@ -692,13 +721,16 @@ public class logicIntermediate extends javax.swing.JFrame {
                 jPanel4.show();
                 scoreL.show();
                 scoreLabel.show();
+                tokenLabel.show();
                 selectLabel.show();
                 mmLabel.show();
                 
-                //Home.hScore += score;
-                //Home.tokenEarn += (score*3);
+                scoreEarned += score;
+                tokenEarned += (score*3);
                 
-                scoreLabel.setText(""+score);
+                scoreLabel.setText(""+scoreEarned);
+                tokenLabel.setText(""+tokenEarned);
+                updateST();
                 round = 0;
             }
        });
@@ -785,13 +817,16 @@ public class logicIntermediate extends javax.swing.JFrame {
                 jPanel4.show();
                 scoreL.show();
                 scoreLabel.show();
+                tokenLabel.show();
                 selectLabel.show();
                 mmLabel.show();
                 
-                //Home.hScore += score;
-                //Home.tokenEarn += (score*3);
+                scoreEarned += score;
+                tokenEarned += (score*3);
                 
-                scoreLabel.setText(""+score);
+                scoreLabel.setText(""+scoreEarned);
+                tokenLabel.setText(""+tokenEarned);
+                updateST();
                 round = 0;
             }
        });
@@ -878,13 +913,16 @@ public class logicIntermediate extends javax.swing.JFrame {
                 jPanel4.show();
                 scoreL.show();
                 scoreLabel.show();
+                tokenLabel.show();
                 selectLabel.show();
                 mmLabel.show();
                 
-                //Home.hScore += score;
-                //Home.tokenEarn += (score*3);
+                scoreEarned += score;
+                tokenEarned += (score*3);
                 
-                scoreLabel.setText(""+score);
+                scoreLabel.setText(""+scoreEarned);
+                tokenLabel.setText(""+tokenEarned);
+                updateST();
                 round = 0;
             }
        });

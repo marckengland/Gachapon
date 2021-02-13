@@ -5,6 +5,8 @@ import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Timer;
+import java.sql.*;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -25,6 +27,11 @@ public class mathHard extends javax.swing.JFrame {
     int round = 0;
     int score = 0;
     
+    int tokenEarned = 0;
+    int scoreEarned = 0;
+    
+    String userName = Home.name.getText();
+    
     public mathHard() {
         initComponents();
        
@@ -37,6 +44,7 @@ public class mathHard extends javax.swing.JFrame {
         jPanel4.hide();
         scoreL.hide();
         scoreLabel.hide();
+        tokenLabel.hide();
         selectLabel.hide();
         mmLabel.hide();
         
@@ -65,6 +73,23 @@ public class mathHard extends javax.swing.JFrame {
         answer.setText("");
         update();
     }
+    
+    public void updateST(){
+         System.out.println(""+userName);
+         DBConnection connectNow = new DBConnection();
+	 Connection connectDB = connectNow.getConnection();
+         
+         String updateTokens = "UPDATE gachaponacc SET atscore = atscore + ?, tokens = tokens + ? WHERE user= '" + userName + "'";
+         
+         try{
+             PreparedStatement statement = connectDB.prepareStatement(updateTokens);
+                statement.setInt(1,Integer.parseInt(scoreLabel.getText()));
+                statement.setInt(2,Integer.parseInt(tokenLabel.getText()));  
+                statement.executeUpdate();
+         }catch(Exception ex){
+             
+         }
+     }
     
     public void update(){
         questionLabel.setText(r1 + "" + s + "" + r2);
@@ -243,10 +268,12 @@ public class mathHard extends javax.swing.JFrame {
         if (ans==correct){
             CW.setText("Correct Answer!");
             score++;
+            answer.disable();
         }
         else{
             System.out.println(correct);
             CW.setText("Wrong Answer!");
+            answer.disable();
         }
         
         Timer sleep = new Timer(2000, e -> {
@@ -274,6 +301,7 @@ public class mathHard extends javax.swing.JFrame {
             CW.setText("");
             answer.setText("");
             update();
+            answer.enable();
             round++;
  
             
@@ -288,13 +316,16 @@ public class mathHard extends javax.swing.JFrame {
                 jPanel4.show();
                 scoreL.show();
                 scoreLabel.show();
+                tokenLabel.show();
                 selectLabel.show();
                 mmLabel.show();
                 
-                //Home.hScore += score;
-                //Home.tokenEarn += (score*5);
+                scoreEarned += score;
+                tokenEarned += (score*5);
                 
-                scoreLabel.setText(""+score);
+                scoreLabel.setText(""+scoreEarned);
+                tokenLabel.setText(""+tokenEarned);
+                updateST();
                 round = 0;
             }
         });
