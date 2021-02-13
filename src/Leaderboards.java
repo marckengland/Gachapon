@@ -1,6 +1,11 @@
 
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.Timer;
+import java.sql.*;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import net.proteanit.sql.DbUtils;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,8 +25,37 @@ public class Leaderboards extends javax.swing.JFrame {
     public Leaderboards() {
         initComponents();
         
+        leaderboards.getTableHeader().setVisible(false);
+        jScrollPane1.getViewport().setBackground(new Color(182,190,215));
+        
+        leaderboards.getTableHeader().setOpaque(true);
+        leaderboards.getTableHeader().setBackground(new Color(182,190,215));
+        leaderboards.getTableHeader().setForeground(new Color(255,255,255));
+        
+        leaderboards.setFont(new Font("UD Digi Kyokasho N-R", Font.BOLD, 24));
+        leaderboards.setOpaque(true);
+        leaderboards.setBackground(new Color(182,190,215));
+        leaderboards.setForeground(new Color(255,255,255));
+        leaderboards.setRowHeight(40);
+        
+        showLeaderboards();
 //        int token = Integer.parseInt(Home.tokens.getText());
 //        tokens.setText("Tokens: "+token);
+    }
+    
+    public void showLeaderboards(){
+        DBConnection connectNow = new DBConnection();
+	Connection connectDB = connectNow.getConnection();
+         
+        String getUsers = "SELECT user,atscore FROM gachaponacc ORDER BY atscore DESC";
+        
+        try{
+            PreparedStatement statement = connectDB.prepareStatement(getUsers);
+            ResultSet rs = statement.executeQuery();
+            leaderboards.setModel(DbUtils.resultSetToTableModel(rs));
+        }catch(Exception ex){
+            
+        }
     }
 
     /**
@@ -34,8 +68,11 @@ public class Leaderboards extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        leaderboards = new javax.swing.JTable();
         leaderboardsLabel = new javax.swing.JLabel();
-        comingsoonLabel = new javax.swing.JLabel();
         topup1 = new javax.swing.JLabel();
         back = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -52,6 +89,42 @@ public class Leaderboards extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 640));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("ALL-TIME SCORE");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("NAME");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
+
+        jScrollPane1.setBackground(new java.awt.Color(182, 190, 215));
+
+        leaderboards.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 0, 12)); // NOI18N
+        leaderboards.setForeground(new java.awt.Color(255, 255, 255));
+        leaderboards.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        leaderboards.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        leaderboards.setEnabled(false);
+        leaderboards.setFocusable(false);
+        leaderboards.setGridColor(new java.awt.Color(0, 0, 0));
+        leaderboards.setRequestFocusEnabled(false);
+        leaderboards.setRowSelectionAllowed(false);
+        leaderboards.setRowSorter(null);
+        leaderboards.setShowGrid(false);
+        leaderboards.getTableHeader().setResizingAllowed(false);
+        leaderboards.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(leaderboards);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 620, 410));
+
         leaderboardsLabel.setBackground(new java.awt.Color(0, 0, 0));
         leaderboardsLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         leaderboardsLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -63,18 +136,6 @@ public class Leaderboards extends javax.swing.JFrame {
             }
         });
         jPanel1.add(leaderboardsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 660, 70));
-
-        comingsoonLabel.setBackground(new java.awt.Color(0, 0, 0));
-        comingsoonLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        comingsoonLabel.setForeground(new java.awt.Color(255, 255, 255));
-        comingsoonLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        comingsoonLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/Leaderboards/coming soon.png"))); // NOI18N
-        comingsoonLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                comingsoonLabelMouseClicked(evt);
-            }
-        });
-        jPanel1.add(comingsoonLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 640, 70));
 
         topup1.setBackground(new java.awt.Color(0, 0, 0));
         topup1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -119,10 +180,6 @@ public class Leaderboards extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_topup1MouseClicked
 
-    private void comingsoonLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comingsoonLabelMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comingsoonLabelMouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -160,9 +217,12 @@ public class Leaderboards extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel back;
-    private javax.swing.JLabel comingsoonLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable leaderboards;
     private javax.swing.JLabel leaderboardsLabel;
     private javax.swing.JLabel topup1;
     // End of variables declaration//GEN-END:variables

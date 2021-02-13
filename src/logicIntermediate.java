@@ -190,9 +190,12 @@ public class logicIntermediate extends javax.swing.JFrame {
 
         jPanel4 = new javax.swing.JPanel();
         mmLabel = new javax.swing.JLabel();
-        scoreLabel = new javax.swing.JLabel();
         selectLabel = new javax.swing.JLabel();
+        tokenLabel = new javax.swing.JLabel();
+        tokenL = new javax.swing.JLabel();
+        plusLabel = new javax.swing.JLabel();
         scoreL = new javax.swing.JLabel();
+        scoreLabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         CW = new javax.swing.JLabel();
@@ -239,12 +242,6 @@ public class logicIntermediate extends javax.swing.JFrame {
         });
         jPanel4.add(mmLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 170, 50));
 
-        scoreLabel.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 1, 24)); // NOI18N
-        scoreLabel.setForeground(new java.awt.Color(255, 255, 255));
-        scoreLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        scoreLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel4.add(scoreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 400, 50));
-
         selectLabel.setBackground(new java.awt.Color(255, 255, 255));
         selectLabel.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 1, 18)); // NOI18N
         selectLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -259,12 +256,40 @@ public class logicIntermediate extends javax.swing.JFrame {
         });
         jPanel4.add(selectLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 170, 50));
 
+        tokenLabel.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 1, 24)); // NOI18N
+        tokenLabel.setForeground(new java.awt.Color(255, 255, 255));
+        tokenLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tokenLabel.setText("0");
+        tokenLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel4.add(tokenLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 50, 90));
+
+        tokenL.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 1, 24)); // NOI18N
+        tokenL.setForeground(new java.awt.Color(255, 255, 255));
+        tokenL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tokenL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMGs/tokenIcon.png"))); // NOI18N
+        tokenL.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel4.add(tokenL, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 80, -1));
+
+        plusLabel.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 1, 24)); // NOI18N
+        plusLabel.setForeground(new java.awt.Color(255, 255, 255));
+        plusLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        plusLabel.setText("+");
+        plusLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel4.add(plusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 50, 90));
+
         scoreL.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 1, 24)); // NOI18N
         scoreL.setForeground(new java.awt.Color(255, 255, 255));
         scoreL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         scoreL.setText("SCORE");
         scoreL.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel4.add(scoreL, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 80, -1));
+        jPanel4.add(scoreL, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 80, -1));
+
+        scoreLabel.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 1, 24)); // NOI18N
+        scoreLabel.setForeground(new java.awt.Color(255, 255, 255));
+        scoreLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        scoreLabel.setText("0");
+        scoreLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel4.add(scoreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 170, 50));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 400, 200));
 
@@ -955,10 +980,13 @@ public class logicIntermediate extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel mmLabel;
+    private javax.swing.JLabel plusLabel;
     private javax.swing.JLabel qBG;
     private javax.swing.JLabel questionLabel;
     private javax.swing.JLabel scoreL;
     private javax.swing.JLabel scoreLabel;
     private javax.swing.JLabel selectLabel;
+    private javax.swing.JLabel tokenL;
+    private javax.swing.JLabel tokenLabel;
     // End of variables declaration//GEN-END:variables
 }
