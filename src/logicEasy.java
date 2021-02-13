@@ -215,7 +215,7 @@ public class logicEasy extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Quiz");
+        setTitle("Gachapon");
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(800, 640));
         setResizable(false);
@@ -568,8 +568,8 @@ public class logicEasy extends javax.swing.JFrame {
                 selectLabel.show();
                 mmLabel.show();
                 
-                Home.hScore += score;
-                Home.tokenEarn += (score*1);
+                //Home.hScore += score;
+                //Home.tokenEarn += (score*1);
                 
                 scoreLabel.setText(""+score);
                 round = 0;
@@ -671,8 +671,8 @@ public class logicEasy extends javax.swing.JFrame {
                 selectLabel.show();
                 mmLabel.show();
                 
-                Home.hScore += score;
-                Home.tokenEarn += (score*1);
+                //Home.hScore += score;
+                //Home.tokenEarn += (score*1);
                 
                 scoreLabel.setText(""+score);
                 round = 0;
@@ -764,8 +764,8 @@ public class logicEasy extends javax.swing.JFrame {
                 selectLabel.show();
                 mmLabel.show();
                 
-                Home.hScore += score;
-                Home.tokenEarn += (score*1);
+                //Home.hScore += score;
+                //Home.tokenEarn += (score*1);
                 
                 scoreLabel.setText(""+score);
                 round = 0;
@@ -857,8 +857,8 @@ public class logicEasy extends javax.swing.JFrame {
                 selectLabel.show();
                 mmLabel.show();
                 
-                Home.hScore += score;
-                Home.tokenEarn += (score*1);
+                //Home.hScore += score;
+                //Home.tokenEarn += (score*1);
                 
                 scoreLabel.setText(""+score);
                 round = 0;

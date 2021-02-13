@@ -7,6 +7,7 @@ import java.io.RandomAccessFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import java.sql.*;
 
 
 
@@ -25,23 +26,54 @@ public class Home extends javax.swing.JFrame {
     File file = new File("C:\\Users\\Marck England\\Downloads");
     int ln;
     
-    static int hScore = 0;
-    static int tokenEarn = 0;
+    /*static int hScore = 0;
+    static int tokenEarn = 0;*/
+    
+    
+    Connection con = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+ 
+    String userName = Main.user.getText();
     
     public Home() {
         initComponents();
         profileBG.setBackground(new Color(129,141,182,100));
         charBG.setBackground(new Color(129,141,182,100));
         
-        String userName = Main.user.getText();
+        
         name.setText("Name: "+userName);
         
-        int allScore = hScore;
+        /*int allScore = hScore;
         int allTokens = tokenEarn + 10000;
         
         highScore.setText(""+allScore);
-        tokens.setText(""+allTokens);
+        tokens.setText(""+allTokens);*/       
+        getST();
     }
+    
+     public void getST(){
+         DBConnection connectNow = new DBConnection();
+	 Connection connectDB = connectNow.getConnection();
+         
+         String getTokens = "SELECT tokens,atscore FROM gachaponacc WHERE user= '" + userName + "'";
+         
+         try{
+             Statement statement = connectDB.createStatement();
+             ResultSet queryResult = statement.executeQuery(getTokens);
+             if(queryResult.next()){
+                int gT = queryResult.getInt("tokens");
+                int gS = queryResult.getInt("atscore");
+		tokens.setText(""+gT);
+                highScore.setText(""+gS);
+             } 
+             else{
+		System.out.println("Invalid");
+			}
+         }catch(Exception ex){
+             
+         }
+     }
 
     /*void login(String usr,String pswd){
         try {
@@ -100,7 +132,7 @@ public class Home extends javax.swing.JFrame {
         homeBG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Home");
+        setTitle("Gachapon");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setLocation(new java.awt.Point(0, 0));
         setMinimumSize(new java.awt.Dimension(800, 640));
@@ -315,7 +347,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel logout;
-    private javax.swing.JLabel name;
+    public static javax.swing.JLabel name;
     private javax.swing.JPanel profileBG;
     private javax.swing.JLabel quiz;
     private javax.swing.JLabel rankings;

@@ -1,4 +1,5 @@
 
+import java.awt.HeadlessException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -8,6 +9,7 @@ import java.io.RandomAccessFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import java.sql.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,16 +23,56 @@ import javax.swing.JOptionPane;
  */
 public class Main extends javax.swing.JFrame {
 
-    File file = new File("C:\\");
+    /*File file = new File("C:\\");
     int ln;
-    String Username,Password,Email;
+    String Username,Password,Email;*/
+    
+    private static String username = new String("Username");
+    private static String password = new String("Password");
     
     public Main() {
         initComponents();
         forgotpasshere.hide();
     }
     
-    void createFolder(){
+    public void onClickLogin() throws Exception {
+		
+		Main.username = user.getText();
+		System.out.println("Username: " + Main.username);
+		
+		Main.password = pass.getText();
+		System.out.println("Password: " + Main.password);
+		
+		DBConnection connectNow = new DBConnection();
+		Connection connectDB = connectNow.getConnection();
+		
+		String verifyLogin = "SELECT * FROM gachaponacc WHERE user = '" + username + "' AND pass = '" + password + "'";
+		
+		try {
+			Statement statement = connectDB.createStatement();
+			ResultSet queryResult = statement.executeQuery(verifyLogin);
+			
+			if (queryResult.next()) {
+				System.out.println("Login Successful!!");
+                                this.dispose();
+				new Home().setVisible(true); // -> Will call the...
+					// switchScene method to switch the scene to dash board window.
+			} else {
+                                JOptionPane.showMessageDialog(null,"Invalid username or password!");
+				System.out.println("Invalid Login");
+			}
+			
+			System.out.println("Try!");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			e.getCause();
+			System.out.println("Exception!");
+		}
+		
+	}
+    
+    /*void createFolder(){
         if(!file.exists()){
             file.mkdirs();
         }
@@ -94,7 +136,7 @@ public class Main extends javax.swing.JFrame {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-    }
+    }*/
     
 
     /**
@@ -118,7 +160,7 @@ public class Main extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Login");
+        setTitle("Gachapon");
         setBackground(new java.awt.Color(153, 153, 255));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -209,10 +251,32 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_userActionPerformed
 
     private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
-        createFolder(); 
-        readFile();
-        countLines();
-        login(user.getText(), pass.getText());
+        /*createFolder();
+            readFile();
+            countLines();
+            login(user.getText(), pass.getText());
+            try{
+            String sql = "SELECT * FROM gachaponacc WHERE user=? AND pass=?";
+            con = DriverManager.getConnection("jdbc:mysql://localhost/gachapondb","root","");
+            pst = con.prepareStatement(sql);
+            pst.setString(1,user.getText());
+            pst.setString(2,pass.getText());
+            rs=pst.executeQuery();
+            if(rs.next()){
+            this.dispose();
+            new Home().setVisible(true);
+            }
+            else
+            JOptionPane.showMessageDialog(null,"Invalid Credentials!");
+            }
+            catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+            }*/
+        try {
+            onClickLogin();
+        } catch (Exception ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_loginMouseClicked
 
     private void registerhereMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerhereMouseClicked

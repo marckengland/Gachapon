@@ -40,7 +40,7 @@ public class logicDifficulty extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Select Difficulty");
+        setTitle("Gachapon");
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(800, 640));
         setResizable(false);

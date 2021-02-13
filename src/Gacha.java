@@ -300,7 +300,7 @@ public class Gacha extends javax.swing.JFrame {
         buyTokens = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gacha");
+        setTitle("Gachapon");
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(800, 640));
         setResizable(false);
@@ -884,7 +884,7 @@ public class Gacha extends javax.swing.JFrame {
         }
         else{
             summon1 = randomizer.nextInt(gachaPool+1);
-            Home.tokenEarn -= 160;
+            //Home.tokenEarn -= 160;
             token -= 160;
             tokens.setText(""+token);
     
@@ -1335,7 +1335,7 @@ public class Gacha extends javax.swing.JFrame {
         }
         else{
             summon10 = randomizer.nextInt(gachaPool+1);
-            Home.tokenEarn -= 1600;
+            //Home.tokenEarn -= 1600;
             token -= 1600;
             tokens.setText(""+token);
         
@@ -2651,7 +2651,7 @@ public class Gacha extends javax.swing.JFrame {
                         jPanel3.show();
                         exit.show();
                        break;
-                default : Kai411.show();
+                default : Kai510.show();
                         Haruka10.show();
                         Akisa16.show();
                         Dan17.show();

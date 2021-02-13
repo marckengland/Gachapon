@@ -1,4 +1,5 @@
 
+import java.awt.HeadlessException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -8,12 +9,7 @@ import java.io.RandomAccessFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import java.sql.*;
 
 /**
  *
@@ -21,16 +17,69 @@ import javax.swing.JOptionPane;
  */
 public class Registration extends javax.swing.JFrame {
 
-    File file = new File("C:\\");
+    /*File file = new File("C:\\");
     int ln;
     String Username,Password,Email;
-    int uid = 100000000;
+    int uid = 100000000;*/
     
     public Registration() {
         initComponents();
     }
     
-    void createFolder(){
+    public void registerUser() {
+		DBConnection connectNow = new DBConnection();
+		Connection connectDB = connectNow.getConnection();
+		
+		String username = user.getText();
+                String password = pass.getText();
+		String emailadd = email.getText();
+		
+		// === Check if any field is blank ===
+		if (!username.equals("") && !emailadd.equals("") && !password.equals("")) {
+                    
+			if (password.length() > 6) {
+					
+					// === Check if user name or email is existing ===
+					String verifyLogin = "SELECT * FROM gachaponacc WHERE user = '" + username + "' OR email = '" + emailadd + "'";
+	
+					try {
+						Statement statement = connectDB.createStatement();
+						ResultSet queryResult = statement.executeQuery(verifyLogin);
+						
+						if (queryResult.next()) {
+                                                        JOptionPane.showMessageDialog(null,"Username or email is already been used!");
+							System.out.println("Username or email is already been used!");
+						} else {
+							String insertFields = "INSERT INTO gachaponacc(user, pass, email, atscore, tokens) VALUES ('";
+							String insertValues = username + "','" + password + "','"+ emailadd + "','" + 0 + "','" + 10000 +"')";
+							String insertToRegister = insertFields + insertValues;
+							
+							try {
+								Statement state = connectDB.createStatement();
+								state.executeUpdate(insertToRegister);	
+							} catch (Exception e) {
+								e.printStackTrace();
+								e.getCause();
+							}
+							
+							JOptionPane.showMessageDialog(null,"User has been registered!");
+						}
+						
+					} catch (Exception e) {
+						e.printStackTrace();
+						e.getCause();
+						System.out.println("Exception!");
+					}
+				
+			} else 
+                                JOptionPane.showMessageDialog(null,"Password is too short");
+			
+		} else 
+                        JOptionPane.showMessageDialog(null,"Any field cannot be blank!");
+		
+	}
+    
+    /*void createFolder(){
         if(!file.exists()){
             file.mkdirs();
         }
@@ -75,7 +124,7 @@ public class Registration extends javax.swing.JFrame {
         
     }
     
-    /*void checkData(String usr,String pswd){
+    void checkData(String usr,String pswd){
     
         try {
             RandomAccessFile accessFile = new RandomAccessFile(file+"\\logins.txt", "rw");
@@ -105,7 +154,7 @@ public class Registration extends javax.swing.JFrame {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
             
-    }*/
+    }
     
     void countLines(){
         try {
@@ -121,7 +170,7 @@ public class Registration extends javax.swing.JFrame {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-    }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -145,7 +194,7 @@ public class Registration extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Registration");
+        setTitle("Gachapon");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -234,12 +283,28 @@ public class Registration extends javax.swing.JFrame {
     }//GEN-LAST:event_userActionPerformed
 
     private void registerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMouseClicked
-        createFolder(); 
+        /*createFolder(); 
         readFile();
         countLines();
         //checkData(user.getText(),pass.getText());
         addData(user.getText(),pass.getText(),email.getText());
-        JOptionPane.showMessageDialog(null,"User Registered!");
+        try{
+            String sql = "INSERT INTO gachaponacc"
+            +"(user, pass, email,atscore,tokens)"
+            +"VALUES (?,?,?,0,10000)";
+            con = DriverManager.getConnection("jdbc:mysql://localhost/gachapondb","root","");
+            pst = con.prepareStatement(sql);
+            pst.setString(1,user.getText());
+            pst.setString(2,pass.getText());
+            pst.setString(3,email.getText());
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"User Registered!");
+        }
+        catch(SQLException | HeadlessException ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }*/
+        //JOptionPane.showMessageDialog(null,"User Registered!");
+        registerUser();
         user.setText("");
         pass.setText("");
         email.setText("");
