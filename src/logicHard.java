@@ -20,7 +20,7 @@ public class logicHard extends javax.swing.JFrame {
 
     Random randomizer = new Random();
     
-    int n = 10;
+    int n = 9;
     int round = 0;
     int question = 0;
     int score = 0;
@@ -104,104 +104,93 @@ public class logicHard extends javax.swing.JFrame {
         quiz[0][3] = "C. SMELL : STENCH";
         quiz[0][4] = "D. TASTE : STYLE";
         quiz[0][5] = "3"; // Index of the Correct Answer
-        
+ 
         // Question
-        quiz[1][0] = "<html><p align=\"center\">In their class, Chumley, Peter, Kenel, Donald and Senthil are sitting on a bench. Chumley is sitting next to Peter, Kenel is sitting next to Donald. Donald is not sitting with Senthil. If Chumley and Senthil sit on either end of the bench where does Donald sit?</p></html>"; 
+        quiz[1][0] = "<html><p align=\"center\">Pointing out to an elderly woman, Robin said, “She is the daughter of the woman who is the mother of the husband of my mother”. What is the woman’s relationship to Robin?</p></html>"; 
         
         // Choices
-        quiz[1][1] = "A. between Peter and Donald";
-        quiz[1][2] = "B. between Donald and Senthil"; // Correct Answer
-        quiz[1][3] = "C. between Peter and Kenel";
-        quiz[1][4] = "D. between Kenel and Senthil";
-            quiz[1][5] = "3"; // Index of the Correct Answer
-        
-        
-        // Question
-        quiz[2][0] = "<html><p align=\"center\">Pointing out to an elderly woman, Robin said, “She is the daughter of the woman who is the mother of the husband of my mother”. What is the woman’s relationship to Robin?</p></html>"; 
-        
-        // Choices
-        quiz[2][1] = "A. Granddaughter";
-        quiz[2][2] = "B. Sister-in-Law";
-        quiz[2][3] = "C. Aunt"; // Correct Answer
-        quiz[2][4] = "D. Daughter";
-        quiz[2][5] = "3"; // Index of the Correct Answer
+        quiz[1][1] = "A. Granddaughter";
+        quiz[1][2] = "B. Sister-in-Law";
+        quiz[1][3] = "C. Aunt"; // Correct Answer
+        quiz[1][4] = "D. Daughter";
+        quiz[1][5] = "3"; // Index of the Correct Answer
         
         
         // Question
-        quiz[3][0] = "<html><p align=\"center\">A school organized a knockout football competition in which 23 teams played. What was the least number of matches they needed to play to decide the winner?</p></html>"; 
+        quiz[2][0] = "<html><p align=\"center\">A school organized a knockout football competition in which 23 teams played. What was the least number of matches they needed to play to decide the winner?</p></html>"; 
         
         // Choices
-        quiz[3][1] = "A. 11 matches";
-        quiz[3][2] = "B. 62 matches";
-        quiz[3][3] = "C. 21 matches";
-        quiz[3][4] = "D. 22 matches";
-        quiz[3][5] = "1"; // Index of the Correct Answer
+        quiz[2][1] = "A. 11 matches";
+        quiz[2][2] = "B. 62 matches";
+        quiz[2][3] = "C. 21 matches";
+        quiz[2][4] = "D. 22 matches";
+        quiz[2][5] = "1"; // Index of the Correct Answer
         
         
         // Question
-        quiz[4][0] = "<html><p align=\"center\">On taking delivery of a consignment of eggs the market stall owner was furious to find that several were cracked. In fact, on counting them up in order to assess the damage he found that 72 were cracked, which was 12 per cent of the total consignment. How many eggs in total were in the consignment?</p></html>"; 
+        quiz[3][0] = "<html><p align=\"center\">On taking delivery of a consignment of eggs the market stall owner was furious to find that several were cracked. In fact, on counting them up in order to assess the damage he found that 72 were cracked, which was 12 per cent of the total consignment. How many eggs in total were in the consignment?</p></html>"; 
         
         // Choices
-        quiz[4][1] = "A. 200";
-        quiz[4][2] = "B. 300";
-        quiz[4][3] = "C. 600";
-        quiz[4][4] = "D. 800";
-        quiz[4][5] = "3"; // Index of the Correct Answer
+        quiz[3][1] = "A. 200";
+        quiz[3][2] = "B. 300";
+        quiz[3][3] = "C. 600";
+        quiz[3][4] = "D. 800";
+        quiz[3][5] = "3"; // Index of the Correct Answer
         
         
         // Question
-        quiz[5][0] = "<html><p align=\"center\">How many cases do you need if you have to pack 112 pairs of shoes into cases that each hold 28 shoes?</p></html>"; 
+        quiz[4][0] = "<html><p align=\"center\">How many cases do you need if you have to pack 112 pairs of shoes into cases that each hold 28 shoes?</p></html>"; 
         
         // Choices
-        quiz[5][1] = "A. 8";
-        quiz[5][2] = "B. 4";
-        quiz[5][3] = "C. 16";
-        quiz[5][4] = "D. 12";
+        quiz[4][1] = "A. 8";
+        quiz[4][2] = "B. 4";
+        quiz[4][3] = "C. 16";
+        quiz[4][4] = "D. 12";
+        quiz[4][5] = "1"; // Index of the Correct Answer
+        
+        
+        // Question
+        quiz[5][0] = "<html><p align=\"center\">A bag of potatoes weighs 50 lbs divided by half of its weight. How much does the bag of potatoes weigh?</p></html>"; 
+        
+        // Choices
+        quiz[5][1] = "A. 10 lb";
+        quiz[5][2] = "B. 25 lb";
+        quiz[5][3] = "C. 20 lb";
+        quiz[5][4] = "D. 15 lb";
         quiz[5][5] = "1"; // Index of the Correct Answer
         
         
         // Question
-        quiz[6][0] = "<html><p align=\"center\">A bag of potatoes weighs 50 lbs divided by half of its weight. How much does the bag of potatoes weigh?</p></html>"; 
+        quiz[6][0] = "<html><p align=\"center\">At college, 70% of the students studied Maths, 75% studied English, 85% studied French and 80% studied German. What percentage at least must have studied all 4?</p></html>"; 
         
         // Choices
-        quiz[6][1] = "A. 10 lb";
-        quiz[6][2] = "B. 25 lb";
-        quiz[6][3] = "C. 20 lb";
-        quiz[6][4] = "D. 15 lb";
-        quiz[6][5] = "1"; // Index of the Correct Answer
+        quiz[6][1] = "A. 20";
+        quiz[6][2] = "B. 10";
+        quiz[6][3] = "C. 15";
+        quiz[6][4] = "D. 25";
+        quiz[6][5] = "2"; // Index of the Correct Answer
         
         
         // Question
-        quiz[7][0] = "<html><p align=\"center\">At college, 70% of the students studied Maths, 75% studied English, 85% studied French and 80% studied German. What percentage at least must have studied all 4?</p></html>"; 
+        quiz[7][0] = "<html><p align=\"center\">A card player holds 13 cards of four suits, of which seven are black and six are red. There are twice as many hearts as clubs and twice as many diamonds as hearts. How many spades does he hold?</p></html>"; 
         
         // Choices
-        quiz[7][1] = "A. 20";
-        quiz[7][2] = "B. 10";
-        quiz[7][3] = "C. 15";
-        quiz[7][4] = "D. 25";
-        quiz[7][5] = "2"; // Index of the Correct Answer
+        quiz[7][1] = "A. 6";
+        quiz[7][2] = "B. 7";
+        quiz[7][3] = "C. 5";
+        quiz[7][4] = "D. 12";
+        quiz[7][5] = "1"; // Index of the Correct Answer
         
         
         // Question
-        quiz[8][0] = "<html><p align=\"center\">A card player holds 13 cards of four suits, of which seven are black and six are red. There are twice as many hearts as clubs and twice as many diamonds as hearts. How many spades does he hold?</p></html>"; 
+        quiz[8][0] = "<html><p align=\"center\">A blind man had only black or white socks. In his drawer he had 4 socks. He went to the drawer and took out 2 socks. The chances that he had a pair of white socks was 1/2. What were the chances that he had drawn out a pair of black socks?</p></html>"; 
         
         // Choices
-        quiz[8][1] = "A. 6";
-        quiz[8][2] = "B. 7";
-        quiz[8][3] = "C. 5";
-        quiz[8][4] = "D. 12";
-        quiz[8][5] = "1"; // Index of the Correct Answer
-        
-        
-        // Question
-        quiz[9][0] = "<html><p align=\"center\">A blind man had only black or white socks. In his drawer he had 4 socks. He went to the drawer and took out 2 socks. The chances that he had a pair of white socks was 1/2. What were the chances that he had drawn out a pair of black socks?</p></html>"; 
-        
-        // Choices
-        quiz[9][1] = "A. 50%";
-        quiz[9][2] = "B. 25%";
-        quiz[9][3] = "C. 75%";
-        quiz[9][4] = "D. 0%";
-        quiz[9][5] = "4"; // Index of the Correct Answer
+        quiz[8][1] = "A. 50%";
+        quiz[8][2] = "B. 25%";
+        quiz[8][3] = "C. 75%";
+        quiz[8][4] = "D. 0%";
+        quiz[8][5] = "4"; // Index of the Correct Answer
     }
 
     /**
