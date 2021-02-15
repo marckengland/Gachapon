@@ -23,6 +23,7 @@ public class MainMenuScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gashapon Quiz");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Title.setFont(new java.awt.Font("UD Digi Kyokasho N-R", 1, 90)); // NOI18N
